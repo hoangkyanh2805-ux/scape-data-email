@@ -1,0 +1,26 @@
+﻿# Runtime/cache
+.hermes/tmp/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local env/secrets
+.env
+.env.*
+*.local
+*.secret
+secrets/
+
+# Generated run outputs
+data/
+agent-lead-scraper/error_fix/prompt_history/*.json
+agent-lead-scraper/memory/snapshots/*.json
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+agent-lead-scraper/.git.local-backup/

@@ -1,0 +1,17 @@
+record_type: source_evidence
+required:
+  - source_id
+  - source_type
+  - uri_or_path
+  - captured_at
+  - confidence
+fields:
+  source_id: string
+  source_type: url | file | screenshot | dataset | manual_note | run_output
+  uri_or_path: string
+  captured_at: iso_datetime
+  snippet_or_hash: string
+  screenshot_ref: string
+  confidence: high | medium | low
+  facts: list
+  inference_notes: list

@@ -1,0 +1,19 @@
+record_type: prompt_config_version
+required:
+  - version_id
+  - run_id
+  - agent
+  - error_type
+  - status
+fields:
+  version_id: string
+  run_id: string
+  agent: string
+  error_type: string
+  root_cause: string
+  previous_prompt_or_config_ref: string
+  proposed_prompt_or_config_ref: string
+  validation_result: string
+  improvement_score: number
+  status: proposed | approved | applied | rejected | reverted
+  approval_id: string

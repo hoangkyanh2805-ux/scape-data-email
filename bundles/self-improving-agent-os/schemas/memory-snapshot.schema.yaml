@@ -1,0 +1,21 @@
+record_type: memory_snapshot
+required:
+  - snapshot_id
+  - created_at
+  - agent
+  - run_ids
+  - summary
+  - next_safe_action
+fields:
+  snapshot_id: string
+  created_at: iso_datetime
+  agent: string
+  run_ids: list
+  source_ids: list
+  approval_ids: list
+  prompt_or_config_version_ids: list
+  summary: string
+  patterns: list
+  open_questions: list
+  blocked_items: list
+  next_safe_action: string

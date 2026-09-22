@@ -1,0 +1,28 @@
+record_type: run
+required:
+  - run_id
+  - agent
+  - goal
+  - status
+  - started_at
+  - inputs
+  - retrieved_context_ids
+  - metrics
+  - termination_reason
+fields:
+  run_id: string
+  agent: string
+  goal: string
+  status: draft | running | stopped | completed | approval_required | failed
+  started_at: iso_datetime
+  ended_at: iso_datetime
+  inputs: list
+  retrieved_context_ids: list
+  source_evidence_ids: list
+  draft_artifact_ids: list
+  prompt_or_config_version_ids: list
+  metrics: map
+  termination_reason: string
+  approval_request_id: string
+  memory_snapshot_id: string
+  next_safe_action: string

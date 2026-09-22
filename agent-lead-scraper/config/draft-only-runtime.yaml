@@ -1,0 +1,32 @@
+﻿runtime:
+  name: hermes-lead-scraper
+  draft_only: true
+  approval_required_by_default: true
+
+scrape_profile_agent:
+  actor_allowlist:
+    - mock_public_social_engagement_actor
+    - approved_public_tiktok_or_youtube_actor
+  max_iterations: 3
+  max_failures: 3
+  no_improvement_threshold: 2
+  require_approval_for_paid_actor: true
+  require_approval_for_export: true
+
+quotas:
+  max_runs_without_new_approval: 1
+  max_batch_size_without_new_approval: 25
+  max_total_charge_usd: 0
+
+artifacts:
+  prompt_history_dir: error_fix/prompt_history
+  memory_snapshot_dir: memory/snapshots
+  audit_log_dir: ../.ai/audit
+
+stop_report_format:
+  - Stopped because
+  - Goal affected
+  - Evidence
+  - Safe next options
+  - Recommended option
+  - Approval/input needed

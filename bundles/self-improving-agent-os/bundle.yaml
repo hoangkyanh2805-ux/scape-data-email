@@ -1,0 +1,40 @@
+name: self-improving-agent-os
+version: 0.1.0
+source_project: scape-data
+pattern: identity -> retrieval -> quality-gated loop -> versioned self-fix -> memory snapshot -> approval gate
+created_for:
+  - Hermes runtime
+  - Codex projects
+  - lead generation systems
+  - research/scrape/reporting agents
+agents:
+  - runtime-orchestrator
+  - soul-contract
+  - rag-context
+  - scrape-profile
+  - error-fix
+  - memory-audit
+  - project-map-cloner
+rules:
+  draft_only_default: true
+  stop_after_non_improving_iterations: 2
+  stop_after_repeated_tool_failures: 3
+  approval_required_for:
+    - spend
+    - outreach
+    - publishing
+    - account_login_or_posting
+    - lead_transfer_or_sale
+    - production_prompt_or_config_change
+    - batch_or_source_expansion
+artifacts:
+  readme: README.md
+  install_runbook: runbooks/install-and-adapt.md
+  sop: runbooks/sop-self-improving-agent-os.md
+  runbook: runbooks/run-agent-loop.md
+  checklist: checklists/self-improving-agent-checklist.md
+acceptance:
+  - target project can create a run_id
+  - target project can write run/source/approval/memory records
+  - every external-impact action becomes an approval request
+  - every memory summary has exact source pointers
