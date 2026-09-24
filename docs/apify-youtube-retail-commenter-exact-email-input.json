@@ -1,0 +1,48 @@
+{
+  "approval_id": "apify-youtube-retail-commenter-exact-email-002",
+  "budget_ceiling_usd": 0.05,
+  "source_run": "data/forex-social-intent/runs/20260922-190136/filtered_leads.csv",
+  "actor_candidate": "crawlerbros/youtube-email-scraper",
+  "do_not_run_without_approval": true,
+  "input": {
+    "channelUrls": [
+      "https://www.youtube.com/channel/UCh_PhmrblXzHNLSRuHWE0wg",
+      "https://www.youtube.com/channel/UCPurCnYMuKS0HQW3_sklg2w",
+      "https://www.youtube.com/channel/UC6HWhdp9XtESdRXWf4NAbBQ",
+      "https://www.youtube.com/channel/UCEXE6XlvGbFHrEvi9Z0xhzw"
+    ],
+    "followExternalProfiles": true,
+    "maxExternalPerChannel": 2,
+    "autoProxyFallback": true
+  },
+  "qualified_handles": [
+    {
+      "handle": "@judymugo6751",
+      "evidence": "Hello Daniel.. How do l apply  for one on one mentorship?",
+      "offer_bucket": "coaching_mastermind"
+    },
+    {
+      "handle": "@AfrosterGerald",
+      "evidence": "How can I apply",
+      "offer_bucket": "mini_course"
+    },
+    {
+      "handle": "@MaxwellLouis-d5h",
+      "evidence": "I love the way you teach and breakdown your analysis Vdollar...... It very understandable, and I hope to learn more about Gold",
+      "offer_bucket": "mini_course"
+    },
+    {
+      "handle": "@ChartMe_Avi",
+      "evidence": "Brother can you be my mentor, am starting this forex journey",
+      "offer_bucket": "coaching_mastermind"
+    }
+  ],
+  "rules": [
+    "public data only",
+    "no login/cookies/private contact panels",
+    "no guessed/generated emails",
+    "no validation at scale",
+    "no outreach/export",
+    "every retained email needs email_source_url and email_source_field"
+  ]
+}

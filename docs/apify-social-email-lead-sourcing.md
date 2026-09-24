@@ -214,3 +214,17 @@ Use the dedicated research map and runbook:
 - `docs/forex-social-engagement-lead-research.md`
 - `docs/runbook-forex-social-engagement-lead-batch.md`
 - `.ai/agents/forex-social-intent/`
+
+## Briantom Customer-First Correction
+
+For this repo's retail customer goal, do not start with broad `keyword + @gmail.com` social email actors. The Facebook actor test on 2026-09-22 returned 2 raw emails and 0 accepted customer leads because snippets matched seller/training/creator-side pages.
+
+Use this order instead:
+
+```text
+public comments/replies -> customer intent scoring -> seller/IB/affiliate rejection -> exact profile/link enrichment -> website/contact extraction only if a public link exists
+```
+
+Broad keyword email actors may be used only for a separately labeled `operator_business` track, such as trading schools, signal group operators, communities, or AI Sales Agent buyers with public websites. Do not mix those rows with `retail_customer` leads.
+
+See `docs/briantom-social-email-customer-pipeline.md` before preparing the next Apify approval packet.

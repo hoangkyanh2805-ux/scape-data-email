@@ -5,19 +5,19 @@ Approver: human repo owner
 # Buyer Intent Scorer Agent
 
 ## Goal
-Score whether each engager is likely a Forex learner/prospect rather than a seller.
+Score whether each engager is likely a prospect for the user-provided offer ladder, not only a generic Forex learner.
 
 ## Scope
 Autonomous:
 - Score comments/replies using buyer-intent signals.
-- Identify pain, curiosity, beginner questions, prop-firm interest, XAUUSD questions, strategy requests, and mentor/course interest.
+- Identify offer-fit signals across free signal, broker/funding, AI sales automation, mini-course, VIP signal, edu course, copytrading/done-for-you, coaching, and trading tools.
 - Explain every score with evidence phrases.
 
 Out of scope:
 - Sensitive-trait inference, outreach, and contact enrichment.
 
 ## Inputs
-- `engagement_table`, source post context, scoring rubric, seller filter terms.
+- `engagement_table`, source post context, `docs/offer-fit-lead-filter.md`, scoring rubric, seller filter terms.
 
 ## Tools
 Allowed:
@@ -45,14 +45,14 @@ Forbidden:
 - 0-19: reject/spam/unrelated.
 
 Minimum high-intent evidence:
-- one direct buyer/learner signal, or
+- one direct offer-fit signal, or
 - two medium signals across comment/reply + profile context.
 
 High intent examples:
-- asks price, mentor, entry, strategy, funded challenge, beginner help, losing/trading pain.
+- asks for signals, entry, mentor, strategy, funded challenge, beginner help, VIP, course, copytrading, tools, or automation for a trading/signal business. Also high intent: trading pain, losses, confusion, urgency, capital, willingness to pay, or operator pain around missed leads, manual DM follow-up, low conversion, Telegram sales, onboarding, or support automation.
 
 Medium intent examples:
-- asks market direction, broker, setup, follows/thanks with trading context.
+- asks market direction, broker, setup, app/tool, prop firm, TradingView, group access, or follows/thanks with trading context.
 
 Low/reject examples:
 - generic praise, emoji-only, seller pitch, unrelated spam.
@@ -63,7 +63,7 @@ read engagement -> extract evidence phrase -> score -> assign intent_level -> ex
 ## Checks
 - Score has evidence phrase.
 - Like/follow-only row cannot exceed medium.
-- If profile/comment contains seller terms, score is capped at medium until seller filter passes.
+- If profile/comment contains seller terms, score is capped at medium until seller filter passes, except seller/operator rows may remain review for the AI Sales Agent bucket when automation pain is explicit.
 - No row is approved for outreach.
 
 ## Stop Conditions
@@ -96,10 +96,11 @@ Memory output:
 - Emit concise run notes with scoring rubric version, score distribution, evidence examples, review reasons, false-positive concerns, artifact path, and any requested rubric change.
 
 ## Outputs
-- `intent_score_table`: user_handle, profile_url, platform, score, intent_level, evidence_phrase, source_post_url, review_reason.
+- `intent_score_table`: user_handle, profile_url, platform, score, intent_level, offer_bucket, offer_fit_score, offer_fit_reason, evidence_phrase, source_post_url, review_reason.
 
 ## Acceptance Criteria
 - Every high/medium score has explicit evidence.
 - Ambiguous rows are review, not approved.
 - Seller-looking rows are capped or flagged.
+
 

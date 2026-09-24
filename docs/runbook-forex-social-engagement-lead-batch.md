@@ -1,7 +1,9 @@
 ﻿# Runbook - Forex Social Engagement Lead Batch
 
 ## Goal
-Find people who engage with Forex content and show buyer/learner intent, then prepare a reviewable lead candidate table with public evidence.
+Find people who engage with Forex/trading content and show intent that fits the user-provided offer ladder, then prepare a reviewable lead candidate table with public evidence.
+
+The offer context is captured in `docs/offer-fit-lead-filter.md`. It expands the target beyond beginner learners to include prospects for free signals, broker/funding flows, AI sales automation, mini-course, VIP signals, edu course, copytrading/done-for-you, coaching, and trading tools.
 
 Default mode:
 
@@ -32,7 +34,7 @@ Canonical contracts live in `.ai/agents/forex-social-intent/`.
 ## Required Inputs
 
 - Platforms to test: start with TikTok and YouTube.
-- Forex niche terms: XAUUSD, FTMO, funded trader, prop firm, ICT, SMC, price action.
+- Offer-fit terms: XAUUSD, gold trading, Forex beginner, signal, VIP signal, free signal, broker, FTMO, funded trader, prop firm, ICT, SMC, price action, copytrading, mentorship, course, trading tools, Telegram sales automation, signal group automation.
 - Geography/language if any.
 - Apify budget ceiling.
 - Batch size: posts/videos and comments per post.
@@ -148,13 +150,13 @@ platform, source_url, post_url, author, text, hashtags, metrics, posted_at, acto
 platform, post_url, user_handle, profile_url, engagement_type, text, likes, replied_to, collected_at, actor_id, run_id
 
 ### intent_score_table
-user_handle, profile_url, platform, score, intent_level, evidence_phrase, source_post_url, review_reason
+user_handle, profile_url, platform, score, intent_level, offer_bucket, offer_fit_score, offer_fit_reason, evidence_phrase, source_post_url, review_reason
 
 ### enriched_profiles
 platform, handle, profile_url, bio, website_url, public_email, email_source_url, email_source_field, confidence, notes
 
 ### lead_candidates
-platform, handle, profile_url, source_post_url, engagement_text, intent_score, seller_filter_status, bio, website_url, public_email, email_source_url, email_source_field, confidence, status, review_reason, approval_status
+platform, handle, profile_url, source_post_url, engagement_text, intent_score, offer_bucket, offer_fit_score, offer_fit_reason, seller_filter_status, bio, website_url, public_email, email_source_url, email_source_field, confidence, status, review_reason, approval_status
 
 ## Stop Gates
 
@@ -185,5 +187,7 @@ Stop before:
 - No row is marked approved for outreach without human approval.
 - Batch report includes actor_id, run_id, dataset_id, cost, item count, duplicate rate, confidence split, and next safe action.
 - Public-only check passes: no private group, login-only panel, session cookie, or evasion setup.
-- Buyer-intent score has evidence phrase and is not based only on like/follow.
+- Offer-fit score has evidence phrase and is not based only on like/follow.
+
+
 

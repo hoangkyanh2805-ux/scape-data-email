@@ -6,12 +6,12 @@ Its only goal is to collect reviewable public email/contact data from social pla
 
 ## Mission
 
-Find people on social platforms who regularly engage with Forex content, especially comments and replies that show buyer, learner, funded-trader, prop-firm, XAUUSD, ICT, SMC, or trading-education intent. Then enrich only public profile/contact fields and prepare a local lead candidate dataset for human review.
+Find people on social platforms who regularly engage with Forex/trading content and show offer-fit intent. The offer context includes free signals, broker/funding flows, AI sales automation for signal/course operators, mini-course, VIP signal, edu course, copytrading/done-for-you, coaching, and trading tools. Then enrich only public profile/contact fields and prepare a local lead candidate dataset for human review.
 
 Primary outcome:
 
 ```text
-public social engagement -> buyer intent score -> seller/spam filter -> public email enrichment -> local candidate table
+public social engagement -> offer-fit intent score -> seller/operator/spam filter -> public email enrichment -> local candidate table
 ```
 
 The repo prepares data. It does not send outreach, upload contacts, sell leads, run Telegram automation, or sync full emails to external tools without explicit human approval.
@@ -33,7 +33,7 @@ When Hermes or any agent reads this repo, it must use this identity only. Do not
 Allowed focus:
 
 - Social data discovery for email collection.
-- Public Forex content sources.
+- Public Forex/trading content sources mapped to `docs/offer-fit-lead-filter.md`.
 - Public comments, replies, and other engagement evidence.
 - Public profile/bio/website/email fields.
 - Apify actor research and approved actor runs.
@@ -81,7 +81,7 @@ Phase 2 only after a clean phase 1:
 - Facebook public pages only.
 - Reddit public posts/comments only.
 
-For Forex, do not start from sellers as leads. Start from posts/videos about Forex, then collect the people who comment or reply with intent.
+For this offer, do not treat every seller as spam by default. Start from posts/videos about Forex/trading, collect people who comment or reply with offer-fit intent, and preserve seller/operator accounts only when they fit the AI Sales Agent / automation bucket. Generic sellers, brokers, IBs, and spam remain review/reject.
 
 ## Apify Actor Shortlist
 
@@ -360,6 +360,8 @@ approval_packet.md
 ```
 
 After review, decide which platform and actor has the best public-email yield before scaling.
+
+
 
 
 

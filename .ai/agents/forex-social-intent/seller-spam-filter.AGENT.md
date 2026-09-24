@@ -5,13 +5,13 @@ Approver: human repo owner
 # Seller Spam Filter Agent
 
 ## Goal
-Remove or flag sellers, IBs, signal sellers, brokers, bots, and spam accounts from buyer lead candidates.
+Remove or flag irrelevant sellers, IBs, brokers, bots, and spam accounts while preserving seller/operator accounts that fit the AI Sales Agent / automation offer bucket.
 
 ## Scope
 Autonomous:
 - Detect seller language in comments and bios.
 - Flag broker promotions, VIP channels, signal groups, account management, copy trading, and giveaway spam.
-- Keep borderline rows for review rather than deleting evidence.
+- Preserve trading-channel/course/signal operators as `review` when they show automation, follow-up, lead handling, support, or conversion pain. Keep borderline rows for review rather than deleting evidence.
 
 Out of scope:
 - Permanent deletion, outreach, and final lead approval.
@@ -42,7 +42,7 @@ read scored candidates -> detect seller/spam evidence -> cap/adjust status -> em
 - Seller/spam decisions include evidence phrase.
 - Rejected rows remain auditable.
 - Borderline rows are review.
-- Seller terms cap buyer intent unless human overrides.
+- Seller terms cap buyer intent unless the row is explicitly classified as `operator_ai_sales_agent_fit`.
 
 ## Stop Conditions
 - Missing source evidence.
@@ -75,10 +75,11 @@ Memory output:
 - Emit concise run notes with seller/spam signals, rejected/review counts, preserved evidence pointers, rule changes proposed, artifact path, and unresolved conflicts.
 
 ## Outputs
-- `filtered_leads`: user_handle, platform, seller_filter_status, filter_reason, retained_for_review, evidence.
+- `filtered_leads`: user_handle, platform, seller_filter_status, filter_reason, offer_bucket, retained_for_review, evidence.
 
 ## Acceptance Criteria
 - No row is silently dropped.
 - Seller/spam rows have status and reason.
 - Retained rows still preserve original evidence.
+
 

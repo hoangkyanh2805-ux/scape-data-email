@@ -1,0 +1,8 @@
+﻿[mcp_servers.apify]
+url = "https://mcp.apify.com/?tools=fetch-actor-details,clockworks/tiktok-comments-scraper,clockworks/tiktok-scraper"
+auth = "oauth"
+enabled = true
+default_tools_approval_mode = "prompt"
+startup_timeout_sec = 20
+tool_timeout_sec = 120
+
